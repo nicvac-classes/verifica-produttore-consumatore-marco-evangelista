@@ -71,14 +71,14 @@ def main():
     consumatori = [ConsumatoreThread(i + 1) for i in range(N_CONSUMATORI)]
 
     # DA IMPLEMENTARE: start dei thread produttori e consumatori
-    for start in ProduttoreThread():
-        ProduttoreThread.start()
-    for start in ConsumatoreThread():
-        ConsumatoreThread.start()
+    for P in ProduttoreThread():
+        P.start()
+    for C in ConsumatoreThread():
+        C.start()
 
     # DA IMPLEMENTARE: join di tutti i produttori
-    for join in ProduttoreThread():
-        ProduttoreThread.join()
+    for P in ProduttoreThread():
+        P.join()
 
     print("Tutti i sensori hanno terminato. Chiusura piste...")
 
@@ -89,8 +89,8 @@ def main():
         pass
 
     # DA IMPLEMENTARE: join di tutti i consumatori
-    for join in ConsumatoreThread:
-        ConsumatoreThread.join()
+    for C in ConsumatoreThread:
+        C.join()
 
     print("Torre operativa chiusa.")
 
