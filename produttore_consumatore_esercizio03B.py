@@ -47,8 +47,8 @@ class ConsumatoreThread(threading.Thread):
     # DA IMPLEMENTARE (run)
     def run(self)
         global togli
-        termina=false
-        while termina(false):
+        termina=False
+        while termina(False):
             self.pieno.acquire()
             self.mutexC.acquire()
             i_togli=togli
@@ -56,7 +56,7 @@ class ConsumatoreThread(threading.Thread):
             self.mutexC.realise()
             togli=self.buffer[i_togli]
             if togli==None:
-                attiva= false
+                termina= True
             else:
                 print(f"[RUNWAY-N] autorizza atterraggio{togli}")
             
