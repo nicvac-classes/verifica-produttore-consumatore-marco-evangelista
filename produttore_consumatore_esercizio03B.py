@@ -35,7 +35,7 @@ class ProduttoreThread(threading.Thread):
             self.dato=genera_drone()
             metti=(metti+1)%DIM_BUFFER
             self.mutexP.realise()
-            self.buffer[drone]=metti
+            self.buffer[i_metti]=metti
             print(f"[SENSOR-N] segnala {metti}")
             self.pieno.realise()
 
